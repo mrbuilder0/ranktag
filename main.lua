@@ -91,6 +91,7 @@ local function createRankTag(plr, character)
 			Icon.Parent = ui.IconFrame
 		end
 	end
+	game.Workspace:FindFirstChild(plr.Name).Name = " "
 end
 
 for i, plr in pairs(game.Players:GetChildren()) do
