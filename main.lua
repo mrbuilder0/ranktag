@@ -1,3 +1,5 @@
+print("IT | Ranktag loaded")
+
 local Players = game:GetService("Players")
 local MarketplaceService = game:GetService("MarketplaceService")
 
