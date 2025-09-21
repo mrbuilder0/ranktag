@@ -45,11 +45,11 @@ local function createRankTag(plr, character)
 	ui.Adornee = head
 	ui.Parent = head
 
-	
+
 	ui.Username.Text = plr.Name .. "(@" .. plr.DisplayName .. ")"
 	ui.Rank.Text = plr:GetRoleInGroup(Settings.GroupID)
 
-	
+
 	if Settings["RainbowGamepassFunction"]["Active"] == true then
 		if game:GetService("MarketplaceService"):UserOwnsGamePassAsync(plr.UserId,Settings["RainbowGamepassFunction"]["GamepassID"]) then
 			addRainbowEffect(ui.Username)
@@ -91,6 +91,10 @@ local function createRankTag(plr, character)
 			Icon.Parent = ui.IconFrame
 		end
 	end
+end
+
+for i, plr in pairs(game.Players:GetChildren()) do
+	createRankTag(plr, plr.Character)
 end
 
 
