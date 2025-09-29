@@ -4,7 +4,6 @@ local TweenService = game:GetService("TweenService")
 
 local Settings = require(script.Parent.Settings)
 
--- Function to add rainbow gradient to a TextLabel
 local function addRainbowEffect(textLabel)
 	local gradient = Instance.new("UIGradient")
 	gradient.Color = ColorSequence.new{
@@ -91,7 +90,10 @@ local function createRankTag(plr, character)
 			Icon.Parent = ui.IconFrame
 		end
 	end
-	game.Workspace:FindFirstChild(plr.Name).Name = " "
+	local humanoid = character:FindFirstChildOfClass("Humanoid")
+	if humanoid then
+		humanoid.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+	end
 end
 
 for i, plr in pairs(game.Players:GetChildren()) do
@@ -108,3 +110,5 @@ Players.PlayerAdded:Connect(function(plr)
 		createRankTag(plr, plr.Character)
 	end
 end)
+
+
